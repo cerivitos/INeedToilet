@@ -6,7 +6,10 @@
   let style = "color: #cbd5e0";
 
   onMount(() => {
-    getLocation();
+    if (window.location.search.length === 0) {
+      getLocation();
+    }
+    
   })
 
   function getLocation() {
