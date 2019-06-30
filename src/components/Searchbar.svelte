@@ -5,17 +5,8 @@
   const dispatch = createEventDispatcher();
   let style = "color: #cbd5e0";
 
-  onMount(() => {    
-    navigator.permissions && navigator.permissions.query({name: 'geolocation'}).then(function(PermissionStatus) {
-      if (PermissionStatus.state == 'granted') {
-        geoPermissionGranted.set(true);
-        style = "color: #248ea9";
-      } 
-      
-      if (window.location.search.length === 0){
-        getLocation();
-      }
-    })
+  onMount(() => {
+    getLocation();
   })
 
   function getLocation() {

@@ -779,48 +779,48 @@
     			line2 = svg_element("line");
     			line3 = svg_element("line");
     			attr(path0, "d", "M491.318,235.318H20.682C9.26,235.318,0,244.577,0,256s9.26,20.682,20.682,20.682h470.636 c11.423,0,20.682-9.259,20.682-20.682C512,244.578,502.741,235.318,491.318,235.318z");
-    			add_location(path0, file, 80, 6, 2550);
+    			add_location(path0, file, 71, 6, 2217);
     			attr(path1, "d", "M491.318,78.439H20.682C9.26,78.439,0,87.699,0,99.121c0,11.422,9.26,20.682,20.682,20.682h470.636    c11.423,0,20.682-9.26,20.682-20.682C512,87.699,502.741,78.439,491.318,78.439z");
-    			add_location(path1, file, 81, 6, 2738);
+    			add_location(path1, file, 72, 6, 2405);
     			attr(path2, "d", "M491.318,392.197H20.682C9.26,392.197,0,401.456,0,412.879s9.26,20.682,20.682,20.682h470.636    c11.423,0,20.682-9.259,20.682-20.682S502.741,392.197,491.318,392.197z");
-    			add_location(path2, file, 82, 6, 2934);
+    			add_location(path2, file, 73, 6, 2601);
     			attr(svg0, "xmlns", "http://www.w3.org/2000/svg");
     			attr(svg0, "class", "w-6 h-6 fill-current text-gray-500 hover:text-gray-600");
     			attr(svg0, "viewBox", "0 0 512 512");
-    			add_location(svg0, file, 79, 4, 2417);
+    			add_location(svg0, file, 70, 4, 2084);
     			button0.className = "my-2 ml-4 flex-grow-0 rounded-full items-center bg-transparent focus: outline-none";
     			attr(button0, "aria-label", "Open side menu");
-    			add_location(button0, file, 78, 2, 2248);
+    			add_location(button0, file, 69, 2, 1915);
     			input.placeholder = "Search accredited toilets...";
     			input.className = "flex-grow bg-transparent p-4 outline-none";
     			attr(input, "type", "search");
     			input.id = "input";
     			attr(input, "aria-label", "Search for toilets by name or address");
-    			add_location(input, file, 85, 2, 3138);
+    			add_location(input, file, 76, 2, 2805);
     			attr(circle, "cx", "12");
     			attr(circle, "cy", "12");
     			attr(circle, "r", "10");
-    			add_location(circle, file, 113, 6, 3986);
+    			add_location(circle, file, 104, 6, 3653);
     			attr(line0, "x1", "22");
     			attr(line0, "y1", "12");
     			attr(line0, "x2", "18");
     			attr(line0, "y2", "12");
-    			add_location(line0, file, 114, 6, 4027);
+    			add_location(line0, file, 105, 6, 3694);
     			attr(line1, "x1", "6");
     			attr(line1, "y1", "12");
     			attr(line1, "x2", "2");
     			attr(line1, "y2", "12");
-    			add_location(line1, file, 115, 6, 4075);
+    			add_location(line1, file, 106, 6, 3742);
     			attr(line2, "x1", "12");
     			attr(line2, "y1", "6");
     			attr(line2, "x2", "12");
     			attr(line2, "y2", "2");
-    			add_location(line2, file, 116, 6, 4121);
+    			add_location(line2, file, 107, 6, 3788);
     			attr(line3, "x1", "12");
     			attr(line3, "y1", "22");
     			attr(line3, "x2", "12");
     			attr(line3, "y2", "18");
-    			add_location(line3, file, 117, 6, 4167);
+    			add_location(line3, file, 108, 6, 3834);
     			attr(svg1, "xmlns", "http://www.w3.org/2000/svg");
     			attr(svg1, "viewBox", "0 0 24 24");
     			attr(svg1, "fill", "none");
@@ -828,13 +828,13 @@
     			attr(svg1, "stroke-linecap", "round");
     			attr(svg1, "stroke-linejoin", "round");
     			attr(svg1, "class", "stroke-current inline-block w-8 h-8");
-    			add_location(svg1, file, 104, 4, 3743);
+    			add_location(svg1, file, 95, 4, 3410);
     			button1.className = "my-2 mr-4 flex-grow-0 rounded-full items-center bg-transparent focus: outline-none hover:text-teal-600";
     			button1.style.cssText = ctx.style;
     			attr(button1, "aria-label", "Get current location");
-    			add_location(button1, file, 99, 2, 3532);
+    			add_location(button1, file, 90, 2, 3199);
     			div.className = "flex justify-end shadow bg-backgroundColor appearance-none border mt-2 rounded-lg";
-    			add_location(div, file, 74, 0, 2104);
+    			add_location(div, file, 65, 0, 1771);
 
     			dispose = [
     				listen(button0, "click", ctx.click_handler),
@@ -917,17 +917,8 @@
       const dispatch = createEventDispatcher();
       let style = "color: #cbd5e0";
 
-      onMount(() => {    
-        navigator.permissions && navigator.permissions.query({name: 'geolocation'}).then(function(PermissionStatus) {
-          if (PermissionStatus.state == 'granted') {
-            geoPermissionGranted.set(true);
-            $$invalidate('style', style = "color: #248ea9");
-          } 
-          
-          if (window.location.search.length === 0){
-            getLocation();
-          }
-        });
+      onMount(() => {
+        getLocation();
       });
 
       function getLocation() {
