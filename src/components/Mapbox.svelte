@@ -198,17 +198,38 @@
   });
 
   function createMarker() {
-    if (currentMarker !== undefined) currentMarker.remove();
+    console.log(
+      `currentLat: ${$currentLat} currentLong: ${$currentLong} homeLat: ${$homeLat} homeLong: ${$homeLong}`
+    );
 
-    currentMarker = new mapboxgl.Marker().setLngLat([
-      $currentLong,
-      $currentLat
-    ]);
-    currentMarker.addTo(map);
+    if (
+      $currentLat !== 1.29027 &&
+      $currentLong !== 103.851959 &&
+      $homeLat !== $currentLat &&
+      $homeLong !== $currentLong
+    ) {
+      currentMarker = new mapboxgl.Marker().setLngLat([
+        $currentLong,
+        $currentLat
+      ]);
+      currentMarker.addTo(map);
 
-    currentMarker
-      .getElement()
-      .firstChild.firstChild.children[1].setAttribute("fill", "#ff4d4d");
+      currentMarker
+        .getElement()
+        .firstChild.firstChild.children[1].setAttribute("fill", "#ff4d4d");
+    } else if ($currentLat === $homeLat && $currentLong === $homeLong) {
+      let el = document.createElement("div");
+      //Use existing Mapbox css and style for pulsing blue location icon
+      el.className =
+        "mapboxgl-user-location-dot mapboxgl-marker mapboxgl-marker-anchor-center";
+      el.style = "transform: translate(-50%, -50%) translate(206px, 366px);";
+
+      currentMarker = new mapboxgl.Marker(el).setLngLat([
+        $currentLong,
+        $currentLat
+      ]);
+      currentMarker.addTo(map);
+    }
 
     window.history.pushState(
       {
@@ -227,8 +248,8 @@
       zoom: detailZoomLevel + 1
     });
 
-    //Do not draw marker if lat lng at default coordinates or current position
-    if ($currentLat !== 1.29027 && $currentLong !== 103.851959) createMarker();
+    if (currentMarker !== undefined) currentMarker.remove();
+    createMarker();
   }
 </script>
 

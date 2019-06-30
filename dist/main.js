@@ -740,8 +740,8 @@
     //variables
     const currentLat = writable(1.29027);
     const currentLong = writable(103.851959);
-    const homeLat = writable(1.29027);
-    const homeLong = writable(103.851959);
+    const homeLat = writable();
+    const homeLong = writable();
     const searchString = writable("");
     const selectedIndex = writable(0);
     const geoPermissionGranted = writable(false);
@@ -779,48 +779,48 @@
     			line2 = svg_element("line");
     			line3 = svg_element("line");
     			attr(path0, "d", "M491.318,235.318H20.682C9.26,235.318,0,244.577,0,256s9.26,20.682,20.682,20.682h470.636 c11.423,0,20.682-9.259,20.682-20.682C512,244.578,502.741,235.318,491.318,235.318z");
-    			add_location(path0, file, 77, 6, 2505);
+    			add_location(path0, file, 77, 6, 2521);
     			attr(path1, "d", "M491.318,78.439H20.682C9.26,78.439,0,87.699,0,99.121c0,11.422,9.26,20.682,20.682,20.682h470.636    c11.423,0,20.682-9.26,20.682-20.682C512,87.699,502.741,78.439,491.318,78.439z");
-    			add_location(path1, file, 78, 6, 2693);
+    			add_location(path1, file, 78, 6, 2709);
     			attr(path2, "d", "M491.318,392.197H20.682C9.26,392.197,0,401.456,0,412.879s9.26,20.682,20.682,20.682h470.636    c11.423,0,20.682-9.259,20.682-20.682S502.741,392.197,491.318,392.197z");
-    			add_location(path2, file, 79, 6, 2889);
+    			add_location(path2, file, 79, 6, 2905);
     			attr(svg0, "xmlns", "http://www.w3.org/2000/svg");
     			attr(svg0, "class", "w-6 h-6 fill-current text-gray-500 hover:text-gray-600");
     			attr(svg0, "viewBox", "0 0 512 512");
-    			add_location(svg0, file, 76, 4, 2372);
+    			add_location(svg0, file, 76, 4, 2388);
     			button0.className = "my-2 ml-4 flex-grow-0 rounded-full items-center bg-transparent focus: outline-none";
     			attr(button0, "aria-label", "Open side menu");
-    			add_location(button0, file, 75, 2, 2203);
+    			add_location(button0, file, 75, 2, 2219);
     			input.placeholder = "Search accredited toilets...";
     			input.className = "flex-grow bg-transparent p-4 outline-none";
     			attr(input, "type", "search");
     			input.id = "input";
     			attr(input, "aria-label", "Search for toilets by name or address");
-    			add_location(input, file, 82, 2, 3093);
+    			add_location(input, file, 82, 2, 3109);
     			attr(circle, "cx", "12");
     			attr(circle, "cy", "12");
     			attr(circle, "r", "10");
-    			add_location(circle, file, 110, 6, 3941);
+    			add_location(circle, file, 110, 6, 3957);
     			attr(line0, "x1", "22");
     			attr(line0, "y1", "12");
     			attr(line0, "x2", "18");
     			attr(line0, "y2", "12");
-    			add_location(line0, file, 111, 6, 3982);
+    			add_location(line0, file, 111, 6, 3998);
     			attr(line1, "x1", "6");
     			attr(line1, "y1", "12");
     			attr(line1, "x2", "2");
     			attr(line1, "y2", "12");
-    			add_location(line1, file, 112, 6, 4030);
+    			add_location(line1, file, 112, 6, 4046);
     			attr(line2, "x1", "12");
     			attr(line2, "y1", "6");
     			attr(line2, "x2", "12");
     			attr(line2, "y2", "2");
-    			add_location(line2, file, 113, 6, 4076);
+    			add_location(line2, file, 113, 6, 4092);
     			attr(line3, "x1", "12");
     			attr(line3, "y1", "22");
     			attr(line3, "x2", "12");
     			attr(line3, "y2", "18");
-    			add_location(line3, file, 114, 6, 4122);
+    			add_location(line3, file, 114, 6, 4138);
     			attr(svg1, "xmlns", "http://www.w3.org/2000/svg");
     			attr(svg1, "viewBox", "0 0 24 24");
     			attr(svg1, "fill", "none");
@@ -828,13 +828,13 @@
     			attr(svg1, "stroke-linecap", "round");
     			attr(svg1, "stroke-linejoin", "round");
     			attr(svg1, "class", "stroke-current inline-block w-8 h-8");
-    			add_location(svg1, file, 101, 4, 3698);
+    			add_location(svg1, file, 101, 4, 3714);
     			button1.className = "my-2 mr-4 flex-grow-0 rounded-full items-center bg-transparent focus: outline-none hover:text-teal-600";
     			button1.style.cssText = ctx.style;
     			attr(button1, "aria-label", "Get current location");
-    			add_location(button1, file, 96, 2, 3487);
+    			add_location(button1, file, 96, 2, 3503);
     			div.className = "flex justify-end shadow bg-backgroundColor appearance-none border mt-2 rounded-lg";
-    			add_location(div, file, 71, 0, 2059);
+    			add_location(div, file, 71, 0, 2075);
 
     			dispose = [
     				listen(button0, "click", ctx.click_handler),
@@ -917,7 +917,7 @@
       const dispatch = createEventDispatcher();
       let style = "color: #cbd5e0";
 
-      onMount(() => {
+      onMount(() => {    
         navigator.permissions && navigator.permissions.query({name: 'geolocation'}).then(function(PermissionStatus) {
           if (PermissionStatus.state == 'granted' && window.location.search.length === 0){
             geoPermissionGranted.set(true);
@@ -1114,10 +1114,10 @@
     			div = element("div");
     			link.href = "https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css";
     			link.rel = "stylesheet";
-    			add_location(link, file$1, 235, 2, 6332);
+    			add_location(link, file$1, 256, 2, 7040);
     			div.id = "map";
     			div.className = "w-screen h-screen";
-    			add_location(div, file$1, 241, 0, 6454);
+    			add_location(div, file$1, 262, 0, 7162);
     		},
 
     		l: function claim(nodes) {
@@ -1150,7 +1150,7 @@
     const detailZoomLevel = 12;
 
     function instance$1($$self, $$props, $$invalidate) {
-    	let $currentLong, $currentLat, $showModal;
+    	let $currentLong, $currentLat, $showModal, $homeLat, $homeLong;
 
     	validate_store(currentLong, 'currentLong');
     	subscribe($$self, currentLong, $$value => { $currentLong = $$value; $$invalidate('$currentLong', $currentLong); });
@@ -1158,6 +1158,10 @@
     	subscribe($$self, currentLat, $$value => { $currentLat = $$value; $$invalidate('$currentLat', $currentLat); });
     	validate_store(showModal, 'showModal');
     	subscribe($$self, showModal, $$value => { $showModal = $$value; $$invalidate('$showModal', $showModal); });
+    	validate_store(homeLat, 'homeLat');
+    	subscribe($$self, homeLat, $$value => { $homeLat = $$value; $$invalidate('$homeLat', $homeLat); });
+    	validate_store(homeLong, 'homeLong');
+    	subscribe($$self, homeLong, $$value => { $homeLong = $$value; $$invalidate('$homeLong', $homeLong); });
 
     	
 
@@ -1341,17 +1345,38 @@
       });
 
       function createMarker() {
-        if (currentMarker !== undefined) currentMarker.remove();
+        console.log(
+          `currentLat: ${$currentLat} currentLong: ${$currentLong} homeLat: ${$homeLat} homeLong: ${$homeLong}`
+        );
 
-        $$invalidate('currentMarker', currentMarker = new mapboxGl.Marker().setLngLat([
-          $currentLong,
-          $currentLat
-        ]));
-        currentMarker.addTo(map);
+        if (
+          $currentLat !== 1.29027 &&
+          $currentLong !== 103.851959 &&
+          $homeLat !== $currentLat &&
+          $homeLong !== $currentLong
+        ) {
+          $$invalidate('currentMarker', currentMarker = new mapboxGl.Marker().setLngLat([
+            $currentLong,
+            $currentLat
+          ]));
+          currentMarker.addTo(map);
 
-        currentMarker
-          .getElement()
-          .firstChild.firstChild.children[1].setAttribute("fill", "#ff4d4d");
+          currentMarker
+            .getElement()
+            .firstChild.firstChild.children[1].setAttribute("fill", "#ff4d4d");
+        } else if ($currentLat === $homeLat && $currentLong === $homeLong) {
+          let el = document.createElement("div");
+          //Use existing Mapbox css and style for pulsing blue location icon
+          el.className =
+            "mapboxgl-user-location-dot mapboxgl-marker mapboxgl-marker-anchor-center";
+          el.style = "transform: translate(-50%, -50%) translate(206px, 366px);";
+
+          $$invalidate('currentMarker', currentMarker = new mapboxGl.Marker(el).setLngLat([
+            $currentLong,
+            $currentLat
+          ]));
+          currentMarker.addTo(map);
+        }
 
         window.history.pushState(
           {
@@ -1364,15 +1389,15 @@
         );
       }
 
-    	$$self.$$.update = ($$dirty = { map: 1, $currentLong: 1, $currentLat: 1 }) => {
-    		if ($$dirty.map || $$dirty.$currentLong || $$dirty.$currentLat) { if (map !== undefined) {
+    	$$self.$$.update = ($$dirty = { map: 1, $currentLong: 1, $currentLat: 1, currentMarker: 1 }) => {
+    		if ($$dirty.map || $$dirty.$currentLong || $$dirty.$currentLat || $$dirty.currentMarker) { if (map !== undefined) {
             map.easeTo({
               center: [$currentLong, $currentLat],
               zoom: detailZoomLevel + 1
             });
         
-            //Do not draw marker if lat lng at default coordinates or current position
-            if ($currentLat !== 1.29027 && $currentLong !== 103.851959) createMarker();
+            if (currentMarker !== undefined) currentMarker.remove();
+            createMarker();
           } }
     	};
 
