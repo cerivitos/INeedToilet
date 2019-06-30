@@ -198,10 +198,6 @@
   });
 
   function createMarker() {
-    console.log(
-      `currentLat: ${$currentLat} currentLong: ${$currentLong} homeLat: ${$homeLat} homeLong: ${$homeLong}`
-    );
-
     if (
       $currentLat !== 1.29027 &&
       $currentLong !== 103.851959 &&

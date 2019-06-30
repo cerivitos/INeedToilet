@@ -1114,10 +1114,10 @@
     			div = element("div");
     			link.href = "https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css";
     			link.rel = "stylesheet";
-    			add_location(link, file$1, 256, 2, 7040);
+    			add_location(link, file$1, 252, 2, 6903);
     			div.id = "map";
     			div.className = "w-screen h-screen";
-    			add_location(div, file$1, 262, 0, 7162);
+    			add_location(div, file$1, 258, 0, 7025);
     		},
 
     		l: function claim(nodes) {
@@ -1345,10 +1345,6 @@
       });
 
       function createMarker() {
-        console.log(
-          `currentLat: ${$currentLat} currentLong: ${$currentLong} homeLat: ${$homeLat} homeLong: ${$homeLong}`
-        );
-
         if (
           $currentLat !== 1.29027 &&
           $currentLong !== 103.851959 &&
