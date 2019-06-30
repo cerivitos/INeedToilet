@@ -1108,10 +1108,10 @@
     			div = element("div");
     			link.href = "https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css";
     			link.rel = "stylesheet";
-    			add_location(link, file$1, 248, 2, 6838);
+    			add_location(link, file$1, 250, 2, 6840);
     			div.id = "map";
     			div.className = "w-screen h-screen";
-    			add_location(div, file$1, 254, 0, 6960);
+    			add_location(div, file$1, 256, 0, 6962);
     		},
 
     		l: function claim(nodes) {
@@ -1354,7 +1354,9 @@
           currentMarker
             .getElement()
             .firstChild.firstChild.children[1].setAttribute("fill", "#ff4d4d");
-        } else if ($currentLat === $homeLat && $currentLong === $homeLong) {
+        }
+
+        if ($currentLat === $homeLat && $currentLong === $homeLong) {
           let el = document.createElement("div");
           //Use existing Mapbox css and style for pulsing blue location icon
           el.className =

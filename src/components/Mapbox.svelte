@@ -213,7 +213,9 @@
       currentMarker
         .getElement()
         .firstChild.firstChild.children[1].setAttribute("fill", "#ff4d4d");
-    } else if ($currentLat === $homeLat && $currentLong === $homeLong) {
+    }
+
+    if ($currentLat === $homeLat && $currentLong === $homeLong) {
       let el = document.createElement("div");
       //Use existing Mapbox css and style for pulsing blue location icon
       el.className =
