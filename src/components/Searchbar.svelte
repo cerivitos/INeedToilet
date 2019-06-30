@@ -7,10 +7,13 @@
 
   onMount(() => {    
     navigator.permissions && navigator.permissions.query({name: 'geolocation'}).then(function(PermissionStatus) {
-      if (PermissionStatus.state == 'granted' && window.location.search.length === 0){
+      if (PermissionStatus.state == 'granted') {
         geoPermissionGranted.set(true);
-        getLocation();
         style = "color: #248ea9";
+      } 
+      
+      if (window.location.search.length === 0){
+        getLocation();
       }
     })
   })
