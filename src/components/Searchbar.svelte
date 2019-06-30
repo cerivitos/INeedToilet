@@ -5,13 +5,6 @@
   const dispatch = createEventDispatcher();
   let style = "color: #cbd5e0";
 
-  onMount(() => {
-    if (window.location.search.length === 0) {
-      getLocation();
-    }
-    
-  })
-
   function getLocation() {
     if (navigator.geolocation) {
       geoPermissionGranted.set(true);
