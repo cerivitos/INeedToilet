@@ -1114,10 +1114,10 @@
     			div = element("div");
     			link.href = "https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css";
     			link.rel = "stylesheet";
-    			add_location(link, file$1, 252, 2, 6903);
+    			add_location(link, file$1, 248, 2, 6838);
     			div.id = "map";
     			div.className = "w-screen h-screen";
-    			add_location(div, file$1, 258, 0, 7025);
+    			add_location(div, file$1, 254, 0, 6960);
     		},
 
     		l: function claim(nodes) {
@@ -1367,11 +1367,7 @@
             "mapboxgl-user-location-dot mapboxgl-marker mapboxgl-marker-anchor-center";
           el.style = "transform: translate(-50%, -50%) translate(206px, 366px);";
 
-          $$invalidate('currentMarker', currentMarker = new mapboxGl.Marker(el).setLngLat([
-            $currentLong,
-            $currentLat
-          ]));
-          currentMarker.addTo(map);
+          new mapboxGl.Marker(el).setLngLat([$currentLong, $currentLat]).addTo(map);
         }
 
         window.history.pushState(

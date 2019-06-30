@@ -220,11 +220,7 @@
         "mapboxgl-user-location-dot mapboxgl-marker mapboxgl-marker-anchor-center";
       el.style = "transform: translate(-50%, -50%) translate(206px, 366px);";
 
-      currentMarker = new mapboxgl.Marker(el).setLngLat([
-        $currentLong,
-        $currentLat
-      ]);
-      currentMarker.addTo(map);
+      new mapboxgl.Marker(el).setLngLat([$currentLong, $currentLat]).addTo(map);
     }
 
     window.history.pushState(
